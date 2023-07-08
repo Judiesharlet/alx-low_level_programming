@@ -1,10 +1,6 @@
-main.h
-
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef ARGC_ARGV_H
+#define ARGC_ARGV_H
 
 int _putchar(char c);
-int _atoi(char *s);
 
 #endif
-
