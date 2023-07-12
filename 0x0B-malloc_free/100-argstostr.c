@@ -1,81 +1,46 @@
 #include "main.h"
-
 #include <stdlib.h>
 
 /**
-
- * argstostr - main entry
-
- * @ac: int input
-
- * @av: double pointer array
-
- * Return: 0
-
+ * argstostr - concatenates all the arguments into a string
+ * @ac: number of arguments
+ * @av: array of arguments
+ *
+ * Return: a pointer to the newly allocated space in memory
  */
 
 char *argstostr(int ac, char **av)
-
 {
-
-	int i, n, r = 0, l = 0;
-
 	char *str;
-
-
+	int arg, byte, i, n = ac;
 
 	if (ac == 0 || av == NULL)
-
 		return (NULL);
 
-
-
-	for (i = 0; i < ac; i++)
-
+	for (arg = 0; arg < ac; arg++)
 	{
-
-		for (n = 0; av[i][n]; n++)
-
-			l++;
-
+		for (byte = 0; av[arg][byte]; byte++)
+			n++;
 	}
 
-	l += ac;
-
-
-
-	str = malloc(sizeof(char) * l + 1);
+	str = malloc(n + 1);
 
 	if (str == NULL)
-
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
+	i = 0;
 
+	for (arg = 0; arg < ac; arg++)
 	{
+		for (byte = 0; av[arg][byte]; byte++)
+			str[i++] = av[arg][byte];
 
-	for (n = 0; av[i][n]; n++)
-
-	{
-
-		str[r] = av[i][n];
-
-		r++;
-
+		str[i++] = '\n';
 	}
 
-	if (str[r] == '\0')
-
-	{
-
-		str[r++] = '\n';
-
-	}
-
-	}
+	str[n] = '\0';
 
 	return (str);
-
 }
 
 

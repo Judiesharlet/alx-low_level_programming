@@ -1,58 +1,31 @@
-#include <stdio.h>
-
 #include <stdlib.h>
-
 #include "main.h"
+#include "2-strlen.c"
 
 /**
-
- * _strdup - duplicate to new memory space location
-
- * @str: char
-
- * Return: 0
-
+ * _strdup - returns a pointer to a newly allocated space in memory
+ * of an array of chars
+ * @str: string to be copied
+ *
+ * Return: a pointer to the newly allocated space in memory
  */
 
 char *_strdup(char *str)
-
 {
-
-	char *aaa;
-
-	int i, r = 0;
-
-
+	char *dup;
+	int i = 0;
 
 	if (str == NULL)
-
 		return (NULL);
 
-	i = 0;
+	dup = malloc(_strlen(str) + 1);
 
-	while (str[i] != '\0')
-
-		i++;
-
-
-
-	aaa = malloc(sizeof(char) * (i + 1));
-
-
-
-	if (aaa == NULL)
-
+	if (dup == NULL)
 		return (NULL);
 
+	for (; str[i] != '\0'; i++)
+		dup[i] = str[i];
 
-
-	for (r = 0; str[r]; r++)
-
-		aaa[r] = str[r];
-
-
-
-	return (aaa);
-
+	return (dup);
 }
 
