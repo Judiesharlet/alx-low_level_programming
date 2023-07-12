@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-/*
+/**
 
  * create_array - create array of size size and assign char c
 
@@ -43,3 +43,5 @@ char *create_array(unsigned int size, char c)
 	return (str);
 
 }
+
+
