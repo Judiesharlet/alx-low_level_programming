@@ -1,23 +1,32 @@
-#include "dog.h"
+#ifndef DOG_H
+#define DOG_H
 
 /**
- * _strcpy - copies a string from src to dest
- * @dest: destination
- * @src: source
+ * struct dog - a dog's basic info
+ * @name: First member
+ * @age: Second member
+ * @owner: Third member
  *
- * Return: dest/copied string
+ * Description: Longer description
  */
-
-char *_strcpy(char *dest, char *src)
+struct dog
 {
-	int i = 0;
+	char *name;
+	float age;
+	char *owner;
+};
 
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
+/**
+ * dog_t - typedef for struct dog
+ */
+typedef struct dog dog_t;
 
-	return (dest);
-}
+void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
+dog_t *new_dog(char *name, float age, char *owner);
+void free_dog(dog_t *d);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+
+#endif
+
